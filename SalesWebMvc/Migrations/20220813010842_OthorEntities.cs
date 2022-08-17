@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using SalesWebMvc.Data;
 
 #nullable disable
 
@@ -10,6 +11,7 @@ namespace SalesWebMvc.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+         
             migrationBuilder.CreateTable(
                 name: "Saller",
                 columns: table => new
