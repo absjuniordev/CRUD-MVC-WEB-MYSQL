@@ -14,7 +14,7 @@ namespace SalesWebMvc.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
-        public ICollection<Saller> Sallers { get; set; } = new List<Saller>();
+        public ICollection<Seller> Sallers { get; set; } = new List<Seller>();
 
         public Department()
         {
@@ -26,7 +26,7 @@ namespace SalesWebMvc.Models
             Name = name;
         }
 
-        public void AddSeller(Saller seller)
+        public void AddSeller(Seller seller)
         {
             Sallers.Add(seller);
         }
