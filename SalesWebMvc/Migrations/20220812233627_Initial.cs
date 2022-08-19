@@ -24,6 +24,7 @@ namespace SalesWebMvc.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Department", x => x.Id);
+                    
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
