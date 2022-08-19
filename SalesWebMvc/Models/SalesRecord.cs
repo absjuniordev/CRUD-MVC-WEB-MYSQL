@@ -20,21 +20,21 @@ namespace SalesWebMvc.Models
         [Display(Name = "Amount")]
         public double Amount { get; set; }
 
-        public SalesStatus Satus { get; set; }
+        public SalesStatus Status { get; set; }
 
-        public Seller Saller { get; set; }
+        public Seller Seller { get; set; }
 
         public SalesRecord()
         {
         }
 
-        public SalesRecord(int id, DateTime date, double amount, SalesStatus satus, Seller saller)
+        public SalesRecord(int id, DateTime date, double amount, SalesStatus status, Seller seller)
         {
             Id = id;
             Date = date;
             Amount = amount;
-            Satus = satus;
-            Saller = saller;
+            Status = status;
+            Seller = seller;
         }
     }
 }

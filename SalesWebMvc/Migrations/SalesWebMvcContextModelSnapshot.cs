@@ -33,7 +33,7 @@ namespace SalesWebMvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departiment");
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
@@ -51,20 +51,20 @@ namespace SalesWebMvc.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("Date");
 
-                    b.Property<int>("SallerId")
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Satus")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SallerId");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("SalesRecord");
                 });
 
-            modelBuilder.Entity("SalesWebMvc.Models.Saller", b =>
+            modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,24 +96,24 @@ namespace SalesWebMvc.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Saller");
+                    b.ToTable("Seller");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
                 {
-                    b.HasOne("SalesWebMvc.Models.Saller", "Saller")
+                    b.HasOne("SalesWebMvc.Models.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SallerId")
+                        .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Saller");
+                    b.Navigation("Seller");
                 });
 
-            modelBuilder.Entity("SalesWebMvc.Models.Saller", b =>
+            modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
                 {
                     b.HasOne("SalesWebMvc.Models.Department", "Department")
-                        .WithMany("Sallers")
+                        .WithMany("Sellers")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -123,10 +123,10 @@ namespace SalesWebMvc.Migrations
 
             modelBuilder.Entity("SalesWebMvc.Models.Department", b =>
                 {
-                    b.Navigation("Sallers");
+                    b.Navigation("Sellers");
                 });
 
-            modelBuilder.Entity("SalesWebMvc.Models.Saller", b =>
+            modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
                 {
                     b.Navigation("Sales");
                 });

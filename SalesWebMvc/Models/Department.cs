@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalesWebMvc.Models
 {
-    [Table("Departiment")]
+    [Table("Department")]
     public class Department
     {
         [Column("Id")]
@@ -14,7 +14,7 @@ namespace SalesWebMvc.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
-        public ICollection<Seller> Sallers { get; set; } = new List<Seller>();
+        public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
         public Department()
         {
@@ -28,12 +28,12 @@ namespace SalesWebMvc.Models
 
         public void AddSeller(Seller seller)
         {
-            Sallers.Add(seller);
+            Sellers.Add(seller);
         }
 
         public double TotalSales(DateTime initial, DateTime final)
         {
-            return Sallers.Sum(seller => seller.TotalSales(initial, final));
+            return Sellers.Sum(seller => seller.TotalSales(initial, final));
         }
     }
 

@@ -13,7 +13,7 @@ namespace SalesWebMvc.Migrations
         {
          
             migrationBuilder.CreateTable(
-                name: "Saller",
+                name: "Seller",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -28,11 +28,11 @@ namespace SalesWebMvc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Saller", x => x.Id);
+                    table.PrimaryKey("PK_Seller", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Saller_Departiment_DepartmentId",
+                        name: "FK_Seller_Department_DepartmentId",
                         column: x => x.DepartmentId,
-                        principalTable: "Departiment",
+                        principalTable: "Department",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -46,29 +46,29 @@ namespace SalesWebMvc.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Amount = table.Column<double>(type: "double", nullable: false),
-                    Satus = table.Column<int>(type: "int", nullable: false),
-                    SallerId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    SellerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SalesRecord", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SalesRecord_Saller_SallerId",
-                        column: x => x.SallerId,
-                        principalTable: "Saller",
+                        name: "FK_SalesRecord_Seller_SellerId",
+                        column: x => x.SellerId,
+                        principalTable: "Seller",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalesRecord_SallerId",
+                name: "IX_SalesRecord_SellerId",
                 table: "SalesRecord",
-                column: "SallerId");
+                column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Saller_DepartmentId",
-                table: "Saller",
+                name: "IX_Seller_DepartmentId",
+                table: "Seller",
                 column: "DepartmentId");
         }
 
@@ -78,7 +78,7 @@ namespace SalesWebMvc.Migrations
                 name: "SalesRecord");
 
             migrationBuilder.DropTable(
-                name: "Saller");
+                name: "Seller");
         }
     }
 }

@@ -11,8 +11,8 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    [Migration("20220813010842_OthorEntities")]
-    partial class OthorEntities
+    [Migration("20220818235422_Atualizar")]
+    partial class Atualizar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

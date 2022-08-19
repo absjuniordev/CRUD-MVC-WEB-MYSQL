@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebMvcContext>
     (options => options.UseMySql(
         "server=localhost; initial catalog=sales_web_mvc;uid=root;pwd=123456",
-        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.30-mysql")));
+        ServerVersion.Parse("8.0.30-mysql")));
 
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
