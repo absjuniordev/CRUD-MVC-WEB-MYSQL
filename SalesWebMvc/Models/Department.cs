@@ -7,11 +7,11 @@ namespace SalesWebMvc.Models
     public class Department
     {
         [Column("Id")]
-        [Display(Name = "Cod")]
+      //  [Display(Name = "Cod")]
         public int Id { get; set; }
 
         [Column("Name")]
-        [Display(Name = "Name")]
+      //  [Display(Name = "Name")]
         public string Name { get; set; }
 
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
