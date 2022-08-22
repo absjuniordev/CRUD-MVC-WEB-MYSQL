@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,10 +22,20 @@ DbContextOptionsBuilder<SalesWebMvcContext> dbContextOptions = new DbContextOpti
 dbContextOptions.UseMySql("server=localhost; initial catalog=sales_web_mvc;uid=root;pwd=123456", ServerVersion.Parse("8.0.30-mysql"));
 SalesWebMvcContext context = new SalesWebMvcContext(dbContextOptions.Options);
 SeedingService seedingService = new SeedingService(context);
-
 seedingService.Seed();
 
+var enUs = new CultureInfo("en-US");
+var localizationsOptions = new RequestLocalizationOptions()
+{
+    DefaultRequestCulture = new RequestCulture("en-US"),
+    SupportedCultures = new List<CultureInfo> { enUs },
+    SupportedUICultures = new List<CultureInfo> { enUs }
+};
+
+
 var app = builder.Build();
+
+app.UseRequestLocalization(localizationsOptions);
 
 if (!app.Environment.IsDevelopment())
 {

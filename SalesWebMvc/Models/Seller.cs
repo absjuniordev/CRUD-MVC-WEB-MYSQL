@@ -17,14 +17,18 @@ namespace SalesWebMvc.Models
 
         [Column("Email")]
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Column("BirthDate")]
-        [Display(Name = "Date")]
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
         [Column("BaseSalary")]
-        [Display(Name = "Salary")]
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString ="{0:C}")]
         public double BaseSalary { get; set; }
 
         public Department Department { get; set; }
