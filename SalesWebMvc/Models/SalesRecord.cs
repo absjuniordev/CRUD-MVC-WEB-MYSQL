@@ -13,10 +13,12 @@ namespace SalesWebMvc.Models
         public int Id { get; set; }
 
         [Column("Date")]
+        
         [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
         [Column("Amount")]
+        
         [Display(Name = "Amount")]
         public double Amount { get; set; }
 
@@ -35,6 +37,7 @@ namespace SalesWebMvc.Models
             Amount = amount;
             Status = status;
             Seller = seller;
+            
         }
     }
 }
