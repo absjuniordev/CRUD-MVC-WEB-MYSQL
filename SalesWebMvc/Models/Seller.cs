@@ -12,21 +12,28 @@ namespace SalesWebMvc.Models
         public int Id { get; set; }
 
         [Column("Name")]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(50, MinimumLength =3, ErrorMessage ="{0} size should be between {2} and {1}")]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
         [Column("Email")]
+        [Required(ErrorMessage = "{0} requerido")]
+        [EmailAddress(ErrorMessage = "Enter valid email")]
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Column("BirthDate")]
+        [Required(ErrorMessage = "{0} requerido")]
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
         [Column("BaseSalary")]
+        [Required(ErrorMessage = "{0} requerido")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be from {1} to {2}")]
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString ="{0:C}")]
         public double BaseSalary { get; set; }
