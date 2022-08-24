@@ -9,7 +9,7 @@ namespace SalesWebMvc.Models
     public class SalesRecord
     {
         [Column("Id")]
-        [Display(Name = "Id")]
+        
         public int Id { get; set; }
 
         [Column("Date")]

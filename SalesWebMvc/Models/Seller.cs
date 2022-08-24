@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using SalesWebMvc.Models.Enums;
 
 
 namespace SalesWebMvc.Models
@@ -42,6 +43,7 @@ namespace SalesWebMvc.Models
 
         public int DepartmentId { get; set; }
 
+
         public ICollection<SalesRecord> Sales { get; set; } = new  List<SalesRecord>();
 
         public Seller()
@@ -56,6 +58,7 @@ namespace SalesWebMvc.Models
             BirthDate = birthDate;
             BaseSalary = baseSalary;
             Department = department;
+  
         }
 
         public void AddSales(SalesRecord sr)

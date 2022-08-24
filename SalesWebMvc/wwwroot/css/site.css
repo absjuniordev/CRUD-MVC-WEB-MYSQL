@@ -16,3 +16,25 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+label2 {
+    font-size: 2rem;
+}
+
+label3 {
+    font-size: 1rem;
+}
+
+
+input[type='image'] {
+    width: 80px;
+}
+div2
+input[type='image'] {
+    height: 400px;
+    width: 1000px;
+}
